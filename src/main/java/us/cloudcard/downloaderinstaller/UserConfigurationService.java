@@ -7,7 +7,7 @@ public class UserConfigurationService {
         PropertyService propertyService = new PropertyService();
 
         propertyService.loadEmptyProperties();
-        propertyService.getValuesFromUser();
+        propertyService.getProperties();
         propertyService.logProperties();
         propertyService.writeFile();
     }

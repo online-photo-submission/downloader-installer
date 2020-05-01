@@ -17,12 +17,13 @@ public class PropertyService {
         log.error("I'm loading the properties");
     }
 
-    public void getValuesFromUser() {
-
+    public void getProperties() {
+        Property userProperties = new Property();
         log.error("I'm getting the answers.");
-        for (int i = 0; i < 10; i++) {
-            properties.add(new Property("key" + i, "value" + i));
+        for (int i = 0; i < 9; i++) {
+            properties.add(new Property(userProperties.getKeys().get(i), userProperties.getUserValues().get(i)));
         }
+
     }
 
     public void logProperties() {
