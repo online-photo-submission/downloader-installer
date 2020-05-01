@@ -1,8 +1,10 @@
 package us.cloudcard.downloaderinstaller;
 
+import java.io.IOException;
+
 public class UserConfigurationService {
 
-    void createUserConfigFile() {
+    void createUserConfigFile() throws IOException {
 
         PropertyService propertyService = new PropertyService();
 

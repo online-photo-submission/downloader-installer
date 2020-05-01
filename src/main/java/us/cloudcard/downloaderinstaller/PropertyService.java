@@ -2,7 +2,8 @@ package us.cloudcard.downloaderinstaller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,9 +34,16 @@ public class PropertyService {
         }
     }
 
-    public void writeFile() {
-
+    public void writeFile() throws IOException {
         log.error("I'm writing the file");
+        Property userProperties = new Property();
+        String fileContent = "";
+        for (int i = 0; i < properties.size(); i++) {
+            fileContent = fileContent.concat(userProperties.getKeys().get(i) + userProperties.getUserValues().get(i)) + "\n";
+        }
+        FileWriter writer = new FileWriter("/Users/applemacbookpro/Desktop/application.properties");
+        writer.write(fileContent);
+        writer.close();
     }
 
 }
