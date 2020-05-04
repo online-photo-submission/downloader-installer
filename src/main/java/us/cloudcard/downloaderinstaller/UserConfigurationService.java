@@ -8,8 +8,9 @@ public class UserConfigurationService {
 
         PropertyService propertyService = new PropertyService();
 
-        propertyService.loadEmptyProperties();
-        propertyService.getProperties();
+        //propertyService.loadEmptyProperties();
+        propertyService.readEmptyPropertiesFromTextFile();
+        propertyService.inputPropertyValuesFromUser();
         propertyService.logProperties();
         propertyService.writeFile();
     }
