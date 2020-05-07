@@ -9,9 +9,11 @@ public class UserConfigurationService {
         PropertyService propertyService = new PropertyService();
 
         //propertyService.loadEmptyProperties();
-        propertyService.readEmptyPropertiesFromTextFile();
-        propertyService.inputPropertyValuesFromUser();
+        propertyService.readEmptyPropertiesWithOptionsFromTextFile();
+        //propertyService.inputPropertyValuesFromUser();
+        //propertyService.inputPropertyValuesFromTextDocumentOptions();
         propertyService.logProperties();
+        propertyService.readValuesFromUserSystemTerminal();
         propertyService.writeFile();
     }
 }

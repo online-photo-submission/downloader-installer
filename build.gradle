@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.2.6.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
+    id 'application'
 }
 
 group = 'us.cloudcard'
@@ -13,8 +14,8 @@ configurations {
     runtimeClasspath {
         extendsFrom developmentOnly
     }
-}
 
+}
 repositories {
     mavenCentral()
 }
@@ -29,4 +30,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+bootRun{
+    standardInput = System.in
 }
