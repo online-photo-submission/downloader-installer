@@ -1,14 +1,15 @@
 package us.cloudcard.downloaderinstaller;
 
-import com.sun.tools.jdeprscan.scan.Scan;
-import org.graalvm.compiler.phases.graph.ScheduledNodeIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.*;
-import java.io.BufferedReader;
 import java.util.regex.Pattern;
 
 public class PropertyService {
@@ -18,6 +19,7 @@ public class PropertyService {
     List<Property> properties = new ArrayList<>();
 
     public void inputPropertyValuesFromUser() {
+
         log.error("I'm getting the answers");
         properties.get(0).value = "https://api.onlinephotosubmission.com/api";
         properties.get(1).value = "thisIsAValidAPIkey";
@@ -31,6 +33,7 @@ public class PropertyService {
     }
 
     public void inputPropertyValuesFromTextDocumentOptions() {
+
         log.error("I'm getting the answers");
         properties.get(0).value = properties.get(0).options.get(0);
         properties.get(1).value = properties.get(1).options.get(1);
@@ -44,38 +47,31 @@ public class PropertyService {
     }
 
     public void readValuesFromUserSystemTerminal() throws IOException {
+
         System.out.println("\n WELCOME TO CLOUDCARD DOWNLOADER INSTALL ASSISTANT\n\n");
 
         for (int i = 0; i < properties.size(); i++) {
             readUserResponse(i);
 
 
-
-
-
-
-
-
-
-
-
-//            if (properties.get(i).getPrompt().endsWith(":")){   //Custom field input queued by title
-//                properties.get(i).value = customChoice();
-//            }
-//            else {
-//                    String optionChoiceTemp = properties.get(i).options.get(optionChoice(i)); // String passer eliminates multiple calls to optionChoice()
-//
-//                if  (optionChoiceTemp.endsWith(":")) {           //Custom field input queued by options
-//                    properties.get(i).value = customChoice();
-//                }
-//                else {
-//                    properties.get(i).value = optionChoiceTemp; // Multiple choice field queued by default
-//                }
-//            }
+            //            if (properties.get(i).getPrompt().endsWith(":")){   //Custom field input queued by title
+            //                properties.get(i).value = customChoice();
+            //            }
+            //            else {
+            //                    String optionChoiceTemp = properties.get(i).options.get(optionChoice(i)); // String passer eliminates multiple calls to optionChoice()
+            //
+            //                if  (optionChoiceTemp.endsWith(":")) {           //Custom field input queued by options
+            //                    properties.get(i).value = customChoice();
+            //                }
+            //                else {
+            //                    properties.get(i).value = optionChoiceTemp; // Multiple choice field queued by default
+            //                }
+            //            }
         }
     }
 
     private void readUserResponse(int index) {
+
         System.out.println(properties.get(index).prompt);
         for (int i = 0; i < properties.get(index).getOptions().size(); i++) { //prints out all the options
             System.out.println((i + 1) + ")" + properties.get(index).options.get(i));
@@ -105,13 +101,16 @@ public class PropertyService {
         }
     }
 
-    private String customChoice () {
+    private String customChoice() {
+
         Scanner scanner = new Scanner(System.in);
         String userCustomInput = scanner.nextLine();
         System.out.println("You entered: " + userCustomInput + "\n\n"); // displays user's choice
         return userCustomInput;
     }
+
     private int optionChoice(int propertyIndex) throws IOException {
+
         for (int i = 0; i < properties.get(propertyIndex).getOptions().size(); i++) { //prints out all the options
             System.out.println((i + 1) + ")" + properties.get(propertyIndex).options.get(i));
         }
@@ -122,12 +121,14 @@ public class PropertyService {
     }
 
     public void logProperties() {
+
         for (Property property : properties) {
             log.info(property.toString());
         }
     }
 
     public void readEmptyPropertiesWithOptionsFromTextFile() throws FileNotFoundException {
+
         log.error("I'm reading the text file with empty properties");
 
         // setup
@@ -135,9 +136,8 @@ public class PropertyService {
         File file = new File("/Users/applemacbookpro/Desktop/properties.txt");
         Scanner scanner = new Scanner(file);
         String line = "";
-        String [] splitLine; // array to hold key half and prompt half of a line
+        String[] splitLine; // array to hold key half and prompt half of a line
         int i = -1;
-
 
 
         //start reading file...
@@ -147,13 +147,14 @@ public class PropertyService {
                 properties.get(i).options.add(line.substring(1));
             } else {
                 splitLine = line.split(Pattern.quote("|"));
-                properties.add(new Property(splitLine[0], splitLine[1], "")); // add value AND prompt
+                properties.add(new Property(splitLine[ 0 ], splitLine[ 1 ], "")); // add value AND prompt
                 i++;
             }
         } while (scanner.hasNextLine());
     }
 
     public void writeFile() throws IOException {
+
         log.error("I'm writing the file");
         FileWriter writer = new FileWriter("/Users/applemacbookpro/Desktop/application.properties");
         for (Property property : properties) {
