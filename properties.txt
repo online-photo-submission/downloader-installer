@@ -1,0 +1,24 @@
+cloudcard.api.url|Does API URL bacon taste mmmmmmm good?
+-https://api.onlinephotosubmission.com/api
+-https://api.onlinephotosubmission.com/other
+cloudcard.api.accessToken|Please enter your CloudCard API access key:
+downloader.storageService|Does DOWNLOADER STORAGE bacon taste mmmmmmm good?
+-FileStorageService
+-DatabaseMetadataFileStorageService
+-SimpleDatabaseStorageService
+downloader.repeat|Does CYCLE bacon taste mmmmmmm good?
+-true
+-false
+downloader.delay.milliseconds|Does DOWNLOADER DELAY bacon taste mmmmmmm good?
+-600000
+-300000
+-60000
+-Enter custom:
+downloader.fetchStatuses|Does FETCH STATUS bacon taste mmmmmmm good?
+-READY_FOR_DOWNLOAD
+downloader.putStatus|Does MARK STATUS bacon taste mmmmmmm good?
+-DOWNLOADED
+downloader.photoDirectories|Does DIRECTORY LABEL bacon taste mmmmmmm good?
+-downloaded-photos
+downloader.minPhotoIdLength|Does MINIMUM PHOTO LENGTH bacon taste mmmmmmm good?
+-0
