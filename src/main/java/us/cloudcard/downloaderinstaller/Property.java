@@ -8,7 +8,6 @@ public class Property {
     String key;
     String prompt;
     String value;
-
     List<String> options;
 
     public Property(String key, String value, List<String> options) {
@@ -31,6 +30,10 @@ public class Property {
 
     public List<String> getOptions() {
         return options;
+    }
+
+    public String getPrompt() {
+        return prompt;
     }
 }
 //taking keys and values from the hardcoded methods
