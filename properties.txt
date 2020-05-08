@@ -1,24 +1,26 @@
-cloudcard.api.url|Does API URL bacon taste mmmmmmm good?
+cloudcard.api.url|Does API URL bacon taste mmmmmmm good? [Default = https://api.onlinephotosubmission.com/api = PROD]
 -https://api.onlinephotosubmission.com/api
--https://api.onlinephotosubmission.com/other
+-https://test-api.onlinephotosubmission.com/api
 cloudcard.api.accessToken|Please enter your CloudCard API access key:
-downloader.storageService|Does DOWNLOADER STORAGE bacon taste mmmmmmm good?
+downloader.storageService|Does DOWNLOADER STORAGE bacon taste mmmmmmm good?  [Default = FileStorageService]
 -FileStorageService
 -DatabaseMetadataFileStorageService
 -SimpleDatabaseStorageService
-downloader.repeat|Does CYCLE bacon taste mmmmmmm good?
+downloader.repeat|Does CYCLE bacon taste mmmmmmm good?  [Default = true]
 -true
 -false
-downloader.delay.milliseconds|Does DOWNLOADER DELAY bacon taste mmmmmmm good?
+downloader.delay.milliseconds|Does DOWNLOADER DELAY bacon taste mmmmmmm good?  [Default = 600000 = 10 Mins]
 -600000
 -300000
 -60000
--Enter custom:
-downloader.fetchStatuses|Does FETCH STATUS bacon taste mmmmmmm good?
+-Or type in your own value.
+downloader.fetchStatuses|Does FETCH STATUS bacon taste mmmmmmm good? [Default = READY_FOR_DOWNLOAD]
+-PENDING
+-APPROVED
 -READY_FOR_DOWNLOAD
-downloader.putStatus|Does MARK STATUS bacon taste mmmmmmm good?
+-Or type in several statuses separated by commas.
+downloader.putStatus|Does MARK STATUS bacon taste mmmmmmm good? [Default = DOWNLOADED]
 -DOWNLOADED
-downloader.photoDirectories|Does DIRECTORY LABEL bacon taste mmmmmmm good?
--downloaded-photos
-downloader.minPhotoIdLength|Does MINIMUM PHOTO LENGTH bacon taste mmmmmmm good?
--0
+-DONE
+-APPROVED
+downloader.photoDirectories|Does DIRECTORY LABEL bacon taste mmmmmmm good? [Default = downloaded-photos]
