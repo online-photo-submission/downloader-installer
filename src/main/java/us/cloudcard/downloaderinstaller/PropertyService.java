@@ -1,8 +1,8 @@
 package us.cloudcard.downloaderinstaller;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.security.sasl.SaslClient;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -20,7 +20,7 @@ public class PropertyService {
 
     public void readValuesFromUser() throws IOException {
 
-        System.out.println("\n WELCOME TO CLOUDCARD DOWNLOADER INSTALL ASSISTANT\n\n");
+        System.out.println("\n WELCOME TO CLOUDCARD DOWNLOADER INSTALL ASSISTANT\n\n\t\tNote: pressing 'Enter' will accept default value\t\n\n");
 
         for (Property property : properties) {
             readUserResponse(property);
@@ -37,9 +37,10 @@ public class PropertyService {
     private void printPrompt(Property property) {
 
         List<String> options = property.getOptions();
+        List<String> optionLabels = property.getOptionLabels();
         System.out.println(property.getPrompt());
         for (int i = 0; i < options.size(); i++) { //prints out all the options
-            System.out.println((i + 1) + ")" + options.get(i));
+            System.out.println("\t" + (i + 1) + ")" + optionLabels.get(i));
         }
     }
 
@@ -67,7 +68,9 @@ public class PropertyService {
         do {
             line = scanner.nextLine();
             if (line.startsWith("-")) {
-                properties.get(i).getOptions().add(line.substring(1));
+                splitLine = line.split(Pattern.quote("|"));
+                properties.get(i).getOptions().add(splitLine[0].substring(1));
+                properties.get(i).getOptionLabels().add(splitLine[1]);
             } else {
                 splitLine = line.split(Pattern.quote("|"));
                 properties.add(new Property(splitLine[ 0 ], splitLine[ 1 ], "")); // add value AND prompt
@@ -87,6 +90,26 @@ public class PropertyService {
         }
         writer.close();
         log.error("File writer successful");
-        System.out.println("THANKS FOR USING CLOUDCARD DOWNLOADER ASSISTANT\n\n");
+
     }
+    public void reviewProperties() throws IOException {
+        System.out.println("Please review your selections: ");
+        for (Property property : properties) {
+                System.out.print("\t" + property);
+            if (property.getValue().isEmpty()){
+                try { System.out.print(property.getOptions().get(0)); }
+                catch (IndexOutOfBoundsException e) {
+                    System.out.print(property.getOptionLabels().get(0));
+                }
+            }
+            System.out.println();
+        }
+        System.out.println("Press enter to confirm or enter 'restart' to retry");
+        Scanner scanner = new Scanner(System.in);
+        String line = scanner.nextLine();
+        if (line.toLowerCase().equals("restart")){
+            readValuesFromUser();
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ public class Property {
     private String prompt;
     private String value;
     private List<String> options;
+    private List<String> optionLabels;
 
     public Property(String key, String value, List<String> options) {
 
@@ -23,6 +24,7 @@ public class Property {
         this.prompt = prompt;
         this.value = value;
         this.options = new ArrayList<>();
+        this.optionLabels = new ArrayList<>();
     }
 
     public String getKey() {
@@ -73,6 +75,9 @@ public class Property {
         return options;
     }
 
+    public List<String> getOptionLabels() {
+        return optionLabels;
+    }
 
     /**
      * Check if string is a number

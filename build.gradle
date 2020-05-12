@@ -8,6 +8,7 @@ plugins {
 group = 'us.cloudcard'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+mainClassName = 'us.cloudcard.downloaderinstaller.DownloaderInstallerApplication'
 
 configurations {
     developmentOnly

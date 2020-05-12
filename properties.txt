@@ -1,26 +1,26 @@
-cloudcard.api.url|Does API URL bacon taste mmmmmmm good? [Default = https://api.onlinephotosubmission.com/api = PROD]
--https://api.onlinephotosubmission.com/api
--https://test-api.onlinephotosubmission.com/api
-cloudcard.api.accessToken|Please enter your CloudCard API access key:
-downloader.storageService|Does DOWNLOADER STORAGE bacon taste mmmmmmm good?  [Default = FileStorageService]
--FileStorageService
--DatabaseMetadataFileStorageService
--SimpleDatabaseStorageService
-downloader.repeat|Does CYCLE bacon taste mmmmmmm good?  [Default = true]
--true
--false
-downloader.delay.milliseconds|Does DOWNLOADER DELAY bacon taste mmmmmmm good?  [Default = 600000 = 10 Mins]
--600000
--300000
--60000
--Or type in your own value.
-downloader.fetchStatuses|Does FETCH STATUS bacon taste mmmmmmm good? [Default = READY_FOR_DOWNLOAD]
--PENDING
--APPROVED
--READY_FOR_DOWNLOAD
--Or type in several statuses separated by commas.
-downloader.putStatus|Does MARK STATUS bacon taste mmmmmmm good? [Default = DOWNLOADED]
--DOWNLOADED
--DONE
--APPROVED
-downloader.photoDirectories|Does DIRECTORY LABEL bacon taste mmmmmmm good? [Default = downloaded-photos]
+cloudcard.api.url|[API URL] Choose your CardCard API URL [Default = https://api.onlinephotosubmission.com/api = PROD]
+-https://api.onlinephotosubmission.com/api|Online Photo Submission Standard API
+-https://test-api.onlinephotosubmission.com/api|Online Photo Submission Test API
+cloudcard.api.accessToken|[API KEY] Please enter your CloudCard API access key: [ACCESS KEY REQUIRED]
+downloader.storageService|[STORAGE SERVICE] Select a way to store photos [Default = FileStorageService]
+-FileStorageService|Store to file
+-DatabaseMetadataFileStorageService|Store metadata to database
+-SimpleDatabaseStorageService|Store to database
+downloader.repeat|Would you like the downloader to run continuously?  [Default = yes]
+-true|yes
+-false|no
+downloader.delay.milliseconds|Check for new photos every ____ minutes. [Default = 600000 = 10 Min]
+-600000|10 min
+-300000|5 min
+-60000|1 min
+-Custom|Or type in your own value in milliseconds.
+downloader.fetchStatuses|Label photos ready to be downloaded as __________. [Default = READY_FOR_DOWNLOAD]
+-READY_FOR_DOWNLOAD|READY_FOR_DOWNLOAD
+-PENDING|PENDING
+-APPROVED|APPROVED
+-Custom|Or type in several statuses separated by commas.
+downloader.putStatus|Label downloaded photos as __________. [Default = DOWNLOADED]
+-DOWNLOADED|DOWNLOADED
+-DONE|DONE
+-APPROVED|APPROVED
+downloader.photoDirectories|Label downloaded photos in your directories as _________. [Default = downloaded-photos]
