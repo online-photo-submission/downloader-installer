@@ -85,7 +85,7 @@ public class PropertyService {
         FileWriter writer = new FileWriter("application.properties");
         for (Property property : properties) {
             if (!property.getValue().isEmpty()) {
-                writer.write(property + "\n");
+                writer.write(property.getKeyValuePair() + "\n");
             }
         }
         writer.close();
@@ -95,14 +95,7 @@ public class PropertyService {
     public void reviewProperties() throws IOException {
         System.out.println("Please review your selections: ");
         for (Property property : properties) {
-                System.out.print("\t" + property);
-            if (property.getValue().isEmpty()){
-                try { System.out.print(property.getOptions().get(0)); }
-                catch (IndexOutOfBoundsException e) {
-                    System.out.print(property.getOptionLabels().get(0));
-                }
-            }
-            System.out.println();
+                System.out.println("\t" + property.getKeyValuePair());
         }
         System.out.println("Press enter to confirm or enter 'restart' to retry");
         Scanner scanner = new Scanner(System.in);

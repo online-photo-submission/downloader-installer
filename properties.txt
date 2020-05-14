@@ -14,13 +14,14 @@ downloader.delay.milliseconds|Check for new photos every ____ minutes. [Default 
 -300000|5 min
 -60000|1 min
 -Custom|Or type in your own value in milliseconds.
-downloader.fetchStatuses|Label photos ready to be downloaded as __________. [Default = READY_FOR_DOWNLOAD]
--READY_FOR_DOWNLOAD|READY_FOR_DOWNLOAD
--PENDING|PENDING
+downloader.fetchStatuses|Download photos with a status of _________. [Default = READY_FOR_DOWNLOAD]
+-READY_FOR_DOWNLOAD|READY FOR DOWNLOAD
 -APPROVED|APPROVED
--Custom|Or type in several statuses separated by commas.
+-Custom|Or type in one or more statuses. Separate multiple statuses with commas.
 downloader.putStatus|Label downloaded photos as __________. [Default = DOWNLOADED]
 -DOWNLOADED|DOWNLOADED
 -DONE|DONE
 -APPROVED|APPROVED
-downloader.photoDirectories|Label downloaded photos in your directories as _________. [Default = downloaded-photos]
+downloader.photoDirectories|What directory do you what to save your downloaded photos into? [Default = downloaded-photos]
+-downloaded-photos|downloaded-photos
+-Custom|Or type in your own directory name(s). Separate multiple directories with commas.

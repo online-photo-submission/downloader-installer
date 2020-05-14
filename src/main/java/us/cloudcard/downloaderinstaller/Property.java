@@ -56,6 +56,10 @@ public class Property {
             }
         }
 
+        if(value.isEmpty()) {
+            return getDefaultValue();
+        }
+
         // the value is not an option choice
         return value;
     }
@@ -79,6 +83,14 @@ public class Property {
         return optionLabels;
     }
 
+    public String getDefaultValue() {
+        if(options == null || options.isEmpty()) {
+            return "ERROR!";
+        }
+
+        return options.get(0);
+    }
+
     /**
      * Check if string is a number
      *
@@ -90,11 +102,14 @@ public class Property {
         return string.matches("^\\d+$");
     }
 
+    public String getKeyValuePair() {
+
+        return getKey() + "=" + getValue();
+    }
 
     @Override
     public String toString() {
-
-        return getKey() + "=" + getValue();
+        return getKeyValuePair();
     }
 }
 //taking keys and values from the hardcoded methods
